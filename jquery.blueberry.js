@@ -76,6 +76,13 @@
 				//rotate to selected slide on pager click
 				if(pager){
 					$('a', pager).click(function() {
+						
+						// stop transition when user click at the same page
+						var idx = $('.pager li a').index(this);
+						if (idx == current) {
+							return false;
+						}
+						
 						//stop the timer
 						clearTimeout(obj.play);
 						//set the slide index based on pager index
